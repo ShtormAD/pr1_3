@@ -1,16 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.example.pr1_3.HelloController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pr1_3.HelloController">
     <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
+   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" scaleX="0.5" scaleY="0.5">
+      <image>
+         <Image url="@../img/f.png" />
+      </image>
+   </ImageView>
+   <HBox alignment="CENTER" maxHeight="40.0" maxWidth="160.0" minHeight="40.0" minWidth="160.0" prefHeight="40.0" prefWidth="160.0">
+      <children>
+         <Label text="x=">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="TF_x" maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" prefWidth="50.0">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </TextField>
+      </children>
+   </HBox>
+   <RadioButton fx:id="RB_n" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" selected="true" text="Сумма первых n членов">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </RadioButton>
+   <HBox alignment="CENTER" maxHeight="30.0" maxWidth="160.0" minHeight="30.0" minWidth="160.0" prefHeight="30.0" prefWidth="160.0">
+      <children>
+         <Label text="n=">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="TF_n" maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" prefWidth="50.0">
+            <HBox.margin>
+               <Insets />
+            </HBox.margin>
+            <font>
+               <Font size="15.0" />
+            </font>
+         </TextField>
+      </children>
+      <VBox.margin>
+         <Insets top="5.0" />
+      </VBox.margin>
+   </HBox>
+   <RadioButton fx:id="RB_e" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Сумма членов 0&lt;e&lt;1">
+      <font>
+         <Font size="15.0" />
+      </font>
+   </RadioButton>
+   <HBox alignment="CENTER" maxHeight="30.0" maxWidth="160.0" minHeight="30.0" minWidth="160.0" prefHeight="30.0" prefWidth="160.0">
+      <children>
+         <Label text="e=">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </Label>
+         <TextField fx:id="TF_e" maxHeight="30.0" maxWidth="50.0" minHeight="30.0" minWidth="50.0" prefHeight="30.0" prefWidth="50.0">
+            <font>
+               <Font size="15.0" />
+            </font>
+         </TextField>
+      </children>
+   </HBox>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+    <Label fx:id="welcomeText">
+      <font>
+         <Font size="15.0" />
+      </font></Label>
+    <Button onAction="#onHelloButtonClick" text="Рассчитать!">
+      <font>
+         <Font size="15.0" />
+      </font></Button>
 </VBox>

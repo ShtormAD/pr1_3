@@ -26,33 +26,68 @@ public class HelloController {
     }
     @FXML
     protected void onHelloButtonClick() {
+        double x;
+        double res = 0;
+        int fact;
+        int i = 1;
+
+        //Первые n членов
         if(toggleGroup.getSelectedToggle() == RB_n){
-            double x;
             try{
                 int n = Integer.parseInt(TF_n.getText());
                 if(n<0) throw new Exception("Отрицтательный счетчик!");
-                double res = 0;
                 x = Double.parseDouble(TF_x.getText().replace(",","."));
-                for(int i = 1; i<=n; i++){
-                    int fact = 0;
+                for(i = 1; i<=n; i++){
+                    fact = 1;
                     for (int ii=1; ii<=2*i+1; ii++)
-                        fact+=ii;
-                    res+=Math.pow(-1,i)*( (Math.pow(x,2*i+1))/fact);
+                        fact=fact*ii;
+                    res+=Math.pow(-1,i)*((Math.pow(x,2*i+1))/fact);
                 }
                 welcomeText.setText("Ответ:"+res);
             } catch (Exception e){
                 e.printStackTrace();
                 ALARM();
             }
-        } else {
-            welcomeText.setText("E");
+        }
+        //Сумма членов 0<e<1
+        else {
+            try{
+                double e = Double.parseDouble(TF_e.getText().replace(",","."));
+                if(0<e&&e<1){
+                    x = Double.parseDouble(TF_x.getText().replace(",","."));
+                    double pr = 0;
+                    do{
+                        fact = 1;
+                        res+= pr;
+                        for (int ii=1; ii<=2*i+1; ii++)
+                            fact=fact*ii;
+                    } while((pr = Math.pow(-1,i)*( (Math.pow(x,2*i+1))/fact)) < e );
+                    welcomeText.setText("Ответ:"+res);
+                } else {
+                    ALARM();
+                }
+            } catch (Exception e){
+                ALARM();
+            }
         }
     }
+    @FXML
+    protected void onSelect(){
+        ALARM("Убил несколько часов, не нашел удовлетворяющих x и e, в теории должно работать");
+    }
+
     private void ALARM(){
         Alert alert = new Alert(Alert.AlertType.WARNING);
         alert.setTitle("Внимание!");
         alert.setHeaderText(null);
         alert.setContentText("Проверьте правильность заполнения полей!");
+        alert.showAndWait();
+    }
+    private void ALARM(String s){
+        Alert alert = new Alert(Alert.AlertType.WARNING);
+        alert.setTitle("Внимание!");
+        alert.setHeaderText(null);
+        alert.setContentText(s);
         alert.showAndWait();
     }
 }

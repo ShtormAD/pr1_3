@@ -54,7 +54,7 @@
          <Insets top="5.0" />
       </VBox.margin>
    </HBox>
-   <RadioButton fx:id="RB_e" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" prefWidth="200.0" text="Сумма членов 0&lt;e&lt;1">
+   <RadioButton fx:id="RB_e" maxWidth="200.0" minWidth="200.0" mnemonicParsing="false" onAction="#onSelect" prefWidth="200.0" text="Сумма членов 0&lt;e&lt;1">
       <font>
          <Font size="15.0" />
       </font>
